@@ -119,6 +119,10 @@ pytest
 This repository is maintained collaboratively.
 Solutions may be implemented in either Java or Python (or both), and different approaches are encouraged.
 
+- Java solutions are primarily reviewed by @wardm5  
+- Python solutions are primarily reviewed by @xjiang16  
+- All changes go through pull requests and must pass CI
+
 ---
 
 ## 📈 Future Improvements
