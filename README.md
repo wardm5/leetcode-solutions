@@ -1,6 +1,6 @@
-# LeetCode Practice (Java + Python)
+# 🧠 LeetCode Practice (Java + Python)
 
-A structured collection of LeetCode solutions in **Java** and **Python**, organized by topic and supported by reusable data structures and unit-tested implementations.
+A structured collection of LeetCode solutions in **Java** and **Python**, organized by topic and supported by reusable data structures, unit tests, and CI.
 
 This repository is used for consistent coding interview preparation and collaborative practice.
 
@@ -8,18 +8,18 @@ This repository is used for consistent coding interview preparation and collabor
 
 ## 🚀 Goals
 
-* Build strong problem-solving and algorithmic skills
-* Maintain clean, readable, and testable code
-* Practice multiple languages (Java and Python)
-* Reuse common data structures and patterns
-* Track progress across topics and difficulty levels
+- Build strong problem-solving and algorithmic skills  
+- Maintain clean, readable, and testable code  
+- Practice multiple languages (Java and Python)  
+- Reuse common data structures and patterns  
+- Track progress across topics and difficulty levels  
 
 ---
 
 ## 📂 Repository Structure
 
-```text
-leetcode/
+```
+leetcode-solutions/
 ├── java/
 │   ├── src/
 │   │   ├── datastructures/
@@ -32,7 +32,7 @@ leetcode/
 │   │       ├── dp/
 │   │       └── ...
 │   ├── tests/
-│   └── pom.xml (or build.gradle)
+│   └── pom.xml
 │
 ├── python/
 │   ├── datastructures/
@@ -44,8 +44,12 @@ leetcode/
 │   │   ├── graph/
 │   │   ├── dp/
 │   │   └── ...
-│   ├── tests/
 │   └── requirements.txt
+│
+├── .github/
+│   ├── workflows/
+│   │   └── ci.yml
+│   └── CODEOWNERS
 │
 └── README.md
 ```
@@ -56,86 +60,156 @@ leetcode/
 
 Problems are grouped by topic:
 
-* Arrays
-* Hash Maps
-* Linked Lists
-* Trees
-* Graphs
-* Dynamic Programming
-* Backtracking
-* Heaps / Priority Queues
-* Math / Misc
+- Arrays  
+- Hash Maps  
+- Linked Lists  
+- Trees  
+- Graphs  
+- Dynamic Programming  
+- Backtracking  
+- Heaps / Priority Queues  
+- Math / Misc  
 
 Each problem lives in its own folder:
 
-```text
-problems/hashmap/two_sum/
+```
+0001_two_sum
+0013_roman_to_integer
 ```
 
 ---
 
-## 🧪 Testing
+## 🧪 Testing & Coverage
 
 ### Java
 
-* Uses **JUnit**
-* Run tests via VS Code or build tool (Maven/Gradle)
+- Uses **JUnit + Maven**
 
-### Python
-
-* Uses **pytest**
-* Run all tests:
+Run tests + coverage:
 
 ```bash
-pytest
+cd java
+mvn verify
+```
+
+Coverage report:
+```
+java/target/site/jacoco/index.html
 ```
 
 ---
 
-## 🔧 Setup
+### Python
+
+- Uses **pytest + pytest-cov**
+
+Install dependencies:
+
+```bash
+cd python
+python -m pip install -r requirements.txt
+```
+
+Run tests:
+
+```bash
+python -m pytest
+```
+
+Run tests with coverage:
+
+```bash
+python -m pytest --cov=problems --cov-report=term-missing --cov-report=html --cov-fail-under=80
+```
+
+Coverage report:
+
+```
+python/htmlcov/index.html
+```
+
+---
+
+## ⚙️ Setup
 
 ### Requirements
 
-* Java (JDK 11+ recommended)
-* Python 3.9+
-* VS Code with:
+- Java (JDK 17 recommended)  
+- Maven  
+- Python 3.12+  
+- pip  
 
-  * Java Extension Pack
-  * Python Extension
+Verify:
 
----
-
-## ✍️ Conventions
-
-* Clear and descriptive naming (e.g., `two_sum`, `binary_tree_level_order_traversal`)
-* Prefer readable code over overly clever solutions
-* Include time and space complexity in comments when relevant
-* Reuse data structures when possible
+```bash
+java -version
+mvn -version
+python --version
+```
 
 ---
 
-## 🤝 Collaboration
+## 🤝 Contribution Workflow
 
-This repository is maintained collaboratively.
-Solutions may be implemented in either Java or Python (or both), and different approaches are encouraged.
+All changes go through **Pull Requests (PRs)**.
 
-- Java solutions are primarily reviewed by @wardm5  
-- Python solutions are primarily reviewed by @xjiang16  
-- All changes go through pull requests and must pass CI
+### 1. Sync latest code
+
+```bash
+git checkout main
+git pull origin main
+```
+
+### 2. Create a branch
+
+```bash
+git checkout -b java-0001-two-sum
+```
+
+### 3. Run tests locally
+
+```bash
+cd java
+mvn verify
+```
+
+```bash
+cd python
+python -m pytest
+```
+
+### 4. Commit and push
+
+```bash
+git add .
+git commit -m "Add solution"
+git push -u origin branch-name
+```
+
+### 5. Open a Pull Request
+
+- CI runs automatically
+- Requires approval before merge
 
 ---
 
-## 📈 Future Improvements
+## 👥 Code Ownership
 
-* Add problem difficulty (Easy / Medium / Hard)
-* Track solved problem count by topic
-* Add pattern-based notes (sliding window, DFS, etc.)
-* Include performance comparisons between languages
+- Java → @wardm5  
+- Python → @xjiang16  
+
+---
+
+## ✍️ Solution Format
+
+Each solution should include:
+
+- brief problem summary  
+- approach explanation  
+- time and space complexity  
 
 ---
 
 ## ⭐ Notes
 
 This is an evolving repository intended for long-term learning and interview preparation.
-
-If you're viewing this, feel free to explore the solutions and structure for your own practice.
