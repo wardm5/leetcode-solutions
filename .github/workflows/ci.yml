@@ -39,11 +39,6 @@ jobs:
   python-tests:
     name: Python Tests and Coverage
     runs-on: ubuntu-latest
-
-    defaults:
-      run:
-        working-directory: python
-
     steps:
       - name: Check out code
         uses: actions/checkout@v4
@@ -54,10 +49,12 @@ jobs:
           python-version: '3.12'
 
       - name: Install dependencies
-        run: python -m pip install -r requirements.txt
+        run: python -m pip install -r python/requirements.txt
 
       - name: Run Python tests and coverage gate
-        run: python -m pytest --cov=. --cov-report=term-missing --cov-report=html --cov-fail-under=95
+        env:
+          PYTHONPATH: .
+        run: python -m pytest python/ --cov=python --cov-report=term-missing --cov-report=html --cov-fail-under=95
 
       - name: Upload coverage files
         if: always()
