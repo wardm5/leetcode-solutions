@@ -1,4 +1,4 @@
-def countDigits(self, num: int) -> int:
+def countDigits(num: int) -> int:
     count = 0
 
     # create a hash table - does not allow duplicate
